@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: pois_raw
+      - name: edges_raw
+      - name: weather_raw

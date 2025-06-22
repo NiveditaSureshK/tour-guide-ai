@@ -1,0 +1,31 @@
+name: 'tour_guide_elt'
+version: '1.0.0'
+
+profile: 'tour_guide_elt'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+
+# Model configuration
+
+models:
+  tour_guide_elt:
+
+    # Everything in models/staging → VIEW
+    staging:
+      +materialized: view
+      +schema: staging          # results in dataset tourguide_dev__staging
+
+    # Everything in models/marts → TABLE
+    marts:
+      +materialized: table
+      +schema: marts            # dataset tourguide_dev__marts
